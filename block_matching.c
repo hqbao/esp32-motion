@@ -7,8 +7,6 @@
 #include <stdbool.h>
 #include <math.h>
 #include <string.h>
-#include "esp_timer.h"
-
 
 /** @brief Computes the Sum of Absolute Difference (SAD) for the given two blocks \n
  * 
@@ -106,8 +104,8 @@ bool motionEstARPS(MotionEstContext *c) {
     int zmp_T = c->mbSize << (c->log2_mbSize + 1);
 
     // Error window used to computed Minimal Matching Error
-    uint costs[6] = {UINT32_MAX}; 
-    uint cost;
+    uint32_t costs[6] = {UINT32_MAX}; 
+    uint32_t cost;
     int stepSize = 0, maxIndex = -1;
 
     // The index points for Large Diamond Search pattern
